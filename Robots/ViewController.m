@@ -7,8 +7,10 @@
 //
 
 #import "ViewController.h"
+#import "ArenaView.h"
 
 @interface ViewController ()
+@property (weak, nonatomic) IBOutlet ArenaView *arenaView;
 
 @end
 
@@ -17,6 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    [self.arenaView setColumns:19 rows:19];
 }
 
 - (void)didReceiveMemoryWarning {

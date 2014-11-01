@@ -17,8 +17,8 @@
 @property (readonly, nonatomic) NSInteger playerStartY;
 
 
-@property (strong, nonatomic) NSSet * robots;
-@property (strong, nonatomic) NSSet * debris;
+@property (strong, nonatomic) NSMutableSet * robots;
+@property (strong, nonatomic) NSMutableSet * debris;
 @property (strong, nonatomic) Player * player;
 
 -(void) restartGame;

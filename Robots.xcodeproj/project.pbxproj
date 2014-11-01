@@ -20,6 +20,7 @@
 		B4B4E6F91A05299C0024C0E6 /* Robot.m in Sources */ = {isa = PBXBuildFile; fileRef = B4B4E6F81A05299C0024C0E6 /* Robot.m */; };
 		B4B4E6FC1A0529BC0024C0E6 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = B4B4E6FB1A0529BC0024C0E6 /* Player.m */; };
 		B4B4E6FF1A052A090024C0E6 /* Arena.m in Sources */ = {isa = PBXBuildFile; fileRef = B4B4E6FE1A052A090024C0E6 /* Arena.m */; };
+		B4B4E7071A0598B10024C0E6 /* ArenaView.m in Sources */ = {isa = PBXBuildFile; fileRef = B4B4E7061A0598B10024C0E6 /* ArenaView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,8 @@
 		B4B4E6FB1A0529BC0024C0E6 /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
 		B4B4E6FD1A052A090024C0E6 /* Arena.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Arena.h; sourceTree = "<group>"; };
 		B4B4E6FE1A052A090024C0E6 /* Arena.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Arena.m; sourceTree = "<group>"; };
+		B4B4E7051A0598B10024C0E6 /* ArenaView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArenaView.h; sourceTree = "<group>"; };
+		B4B4E7061A0598B10024C0E6 /* ArenaView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArenaView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +84,7 @@
 		B4B4E6B91A0527EF0024C0E6 = {
 			isa = PBXGroup;
 			children = (
+				B4B4E7041A0598370024C0E6 /* View */,
 				B4B4E6ED1A0528150024C0E6 /* Controller */,
 				B4B4E6EB1A0527FF0024C0E6 /* Model */,
 				B4B4E6C41A0527EF0024C0E6 /* Robots */,
@@ -163,6 +167,15 @@
 			children = (
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		B4B4E7041A0598370024C0E6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B4B4E7051A0598B10024C0E6 /* ArenaView.h */,
+				B4B4E7061A0598B10024C0E6 /* ArenaView.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -269,6 +282,7 @@
 				B4B4E6FC1A0529BC0024C0E6 /* Player.m in Sources */,
 				B4B4E6F01A05288B0024C0E6 /* Item.m in Sources */,
 				B4B4E6CE1A0527EF0024C0E6 /* ViewController.m in Sources */,
+				B4B4E7071A0598B10024C0E6 /* ArenaView.m in Sources */,
 				B4B4E6CB1A0527EF0024C0E6 /* AppDelegate.m in Sources */,
 				B4B4E6F91A05299C0024C0E6 /* Robot.m in Sources */,
 				B4B4E6F31A0529030024C0E6 /* MovableItem.m in Sources */,
