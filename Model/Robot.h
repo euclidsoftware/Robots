@@ -8,6 +8,6 @@
 
 #import "MovableItem.h"
 
-@interface Robot : MovableItem
+@interface Robot : Item
 
 @end

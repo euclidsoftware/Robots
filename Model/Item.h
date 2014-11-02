@@ -18,7 +18,7 @@
 @property (readonly, nonatomic) NSInteger x;
 @property (readonly, nonatomic) NSInteger y;
 
--(void) placeAtX: (NSInteger) x  y: (NSInteger) y;
+-(void) moveToX: (NSInteger) x y: (NSInteger) y;
 
 
 

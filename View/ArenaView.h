@@ -7,8 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ItemLocation.h"
 
 @interface ArenaView : UIView
+
+@property (strong, nonatomic) NSSet * robotLocations;
+@property (strong, nonatomic) NSSet * debrisLocations;
+@property (strong, nonatomic) ItemLocation * playerLocation;
+
 
 -(void) setColumns:(NSInteger)columns rows:(NSInteger)rows;
 

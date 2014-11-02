@@ -16,12 +16,9 @@
 
 @implementation Item
 
--(void)placeAtX:(NSInteger)x y:(NSInteger)y {
-    if (self.placed == NO) {
-        _x = x;
-        _y = y;
-        self.placed = YES;
-    }
+-(void)moveToX:(NSInteger)x y:(NSInteger)y {
+    _x = x;
+    _y = y;
 }
 
 @end

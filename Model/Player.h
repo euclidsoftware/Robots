@@ -8,6 +8,6 @@
 
 #import "MovableItem.h"
 
-@interface Player : MovableItem
+@interface Player : Item
 
 @end

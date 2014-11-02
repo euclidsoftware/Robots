@@ -15,6 +15,7 @@
 @property (readonly, nonatomic) NSInteger height;
 @property (readonly, nonatomic) NSInteger playerStartX;
 @property (readonly, nonatomic) NSInteger playerStartY;
+@property (readonly, nonatomic) NSInteger level;
 
 
 @property (strong, nonatomic) NSMutableSet * robots;
