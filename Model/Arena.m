@@ -50,15 +50,27 @@
 
 -(void)restartGame {
     self.level = 1;
+    self.player.isDead = NO;
     [self startLevel:1];
+    
 }
 
 -(void) startLevel: (NSInteger) level {
+    self.level = level;
+    
+    // clear the board
+    for (NSInteger i = 0; i < self.height; i++) {
+        for (NSInteger j = 0; j < self.width; j++) {
+            self.board[i][j] = [NSNull null];
+        }
+    }
+
     [self moveItem: self.player toX:self.playerStartX y:self.playerStartY];
     
     NSInteger numRobots = 10 + ((level - 1) * 3);
     self.robots = [NSMutableSet setWithCapacity:numRobots];
     self.debris = [NSMutableSet setWithCapacity:numRobots / 2];
+    
     
     while (numRobots > 0) {
         NSInteger randomX = arc4random_uniform((UInt32) self.width);
@@ -77,8 +89,8 @@
         }
     }
     
-    _safeTeleportsLeft = level;
-    _bombsLeft = level/2;
+    _safeTeleportsLeft = 1 + level/2;
+    _bombsLeft = level/4;
     NSLog(@"Board is: \n\n%@\n", self);
 }
 
@@ -250,11 +262,83 @@
         NSInteger randomY = arc4random_uniform((UInt32) self.height);
 
         if (self.board[randomY][randomX] == [NSNull null]) {
+            // "pick up player"
+            self.board[self.player.y][self.player.x] = [NSNull null];
             [self moveItem:self.player toX:randomX y:randomY];
             [self moveToSpot:5]; // record a move to the new location
-            break; // get out this infinite loop
+            return; // get out this infinite loop
         }
     }
+}
+
+-(void) safeTeleport {
+    _safeTeleportsLeft--;
+    if (_safeTeleportsLeft < 0) {
+        _safeTeleportsLeft = 0;
+    }
+
+    NSInteger n = 0;
+    
+    // first try a buffer zone of 2
+    while (n < 100) {
+        n++;
+        NSInteger randomX = arc4random_uniform((UInt32) self.width);
+        NSInteger randomY = arc4random_uniform((UInt32) self.height);
+        
+        if (self.board[randomY][randomX] == [NSNull null]) {
+            
+            BOOL ok = YES;
+            for (NSInteger y = randomY - 2; y <= randomY + 2; y++) {
+                for (NSInteger x = randomX - 2; x <= randomX + 2; x++) {
+                    if (y >= 0 && y < self.height && x >= 0 && x < self.width) {
+                        if (self.board[y][x] != [NSNull null]) {
+                            ok = NO;
+                        }
+                    }
+                }
+            }
+            
+            if (ok) {
+                // "pick up player"
+                self.board[self.player.y][self.player.x] = [NSNull null];
+                [self moveItem:self.player toX:randomX y:randomY];
+                [self moveToSpot:5]; // record a move to the new location
+                return; // get out this infinite loop
+            }
+        }
+    }
+    
+    n = 0;
+    // now try a buffer zone of 2
+    while (n < 100) {
+        n++;
+        NSInteger randomX = arc4random_uniform((UInt32) self.width);
+        NSInteger randomY = arc4random_uniform((UInt32) self.height);
+        
+        if (self.board[randomY][randomX] == [NSNull null]) {
+            
+            BOOL ok = YES;
+            for (NSInteger y = randomY - 1; y <= randomY + 1; y++) {
+                for (NSInteger x = randomX - 1; x <= randomX + 1; x++) {
+                    if (y >= 0 && y < self.height && x >= 0 && x < self.width) {
+                        if (self.board[y][x] != [NSNull null]) {
+                            ok = NO;
+                        }
+                    }
+                }
+            }
+            
+            if (ok) {
+                // "pick up player"
+                self.board[self.player.y][self.player.x] = [NSNull null];
+                [self moveItem:self.player toX:randomX y:randomY];
+                [self moveToSpot:5]; // record a move to the new location
+                return; // get out this infinite loop
+            }
+        }
+    }
+    
+    [self teleport];
 }
 
 @end

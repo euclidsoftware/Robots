@@ -36,6 +36,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *teleportButton;
 @property (weak, nonatomic) IBOutlet UIButton *safeTeleportButton;
 @property (weak, nonatomic) IBOutlet UIButton *bombButton;
+@property (weak, nonatomic) IBOutlet UILabel *levelLabel;
+@property (weak, nonatomic) IBOutlet UIButton *restartButton;
 
 @end
 
@@ -101,6 +103,16 @@
 }
 
 -(void) translateFromModelToView {
+    
+    self.restartButton.hidden = YES;
+    
+    if (self.arena.player.isDead) {
+        self.arenaView.gameOver = YES;
+        self.restartButton.hidden = NO;
+    }
+    
+    self.levelLabel.text = [NSString stringWithFormat:@"Level %zd", self.arena.level];
+
     // translate player location
     self.arenaView.playerLocation.row = self.arena.player.y;
     self.arenaView.playerLocation.column = self.arena.player.x;
@@ -129,9 +141,11 @@
     
     if (self.arena.safeTeleportsLeft) {
         self.safeTeleportButton.enabled = YES;
+        [self.safeTeleportButton setTitle:[NSString stringWithFormat:@"st: %zd", self.arena.safeTeleportsLeft] forState:UIControlStateNormal];
     }
     else {
         self.safeTeleportButton.enabled = NO;
+        [self.safeTeleportButton setTitle:@"st" forState:UIControlStateNormal];
     }
     
     if (self.arena.bombsLeft) {
@@ -142,24 +156,30 @@
     }
     
     if ([self.arena.robots count] == 0) {
-        NSLog(@"Level complete");
+        [self.arena startLevel:self.arena.level + 1];
+        [self translateFromModelToView];
     }
     
 }
 
 - (IBAction)teleport:(UIButton *)sender {
     [self.arena teleport];
-    if (self.arena.player.isDead) {
-        self.arenaView.gameOver = YES;
-    }
     
     [self translateFromModelToView];
 }
 
 - (IBAction)safeTeleport:(UIButton *)sender {
+    [self.arena safeTeleport];
+    
+    [self translateFromModelToView];
 }
 
 - (IBAction)bomb:(UIButton *)sender {
 }
 
+- (IBAction)restart:(id)sender {
+    [self.arena restartGame];
+    self.arenaView.gameOver = NO;
+    [self translateFromModelToView];
+}
 @end

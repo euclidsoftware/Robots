@@ -35,6 +35,6 @@
 -(void) moveToSpot: (NSInteger) spot;
 -(void) teleport;
 -(void) safeTeleport;
-
+-(void) startLevel: (NSInteger) level;
 
 @end
