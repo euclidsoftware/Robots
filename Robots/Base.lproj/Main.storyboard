@@ -25,7 +25,7 @@
                                     <constraint firstAttribute="width" secondItem="dnf-vL-Y10" secondAttribute="height" multiplier="1:1" id="a1I-bA-w6d"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KPh-8V-MQb">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KPh-8V-MQb" userLabel="dPad">
                                 <rect key="frame" x="100" y="378" width="132" height="132"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5U9-d5-Yvq">
@@ -176,13 +176,70 @@
                                     <constraint firstItem="8cd-xc-2nf" firstAttribute="leading" secondItem="10q-w3-tuf" secondAttribute="trailing" id="xou-zx-c7e"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CPV-ws-NVS" userLabel="Extras">
+                                <rect key="frame" x="240" y="378" width="80" height="132"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BfM-zo-KZ1">
+                                        <rect key="frame" x="0.0" y="0.0" width="80" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="zSe-v0-mDa"/>
+                                        </constraints>
+                                        <state key="normal" title="t:">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="teleport:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="bEF-OU-b2j"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6aT-Pk-zKF">
+                                        <rect key="frame" x="0.0" y="44" width="80" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="mFl-3f-SW6"/>
+                                        </constraints>
+                                        <state key="normal" title="st:">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="safeTeleport:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="7jR-9k-c5b"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jtc-AI-qiX">
+                                        <rect key="frame" x="0.0" y="88" width="80" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="N5I-Kr-WOx"/>
+                                        </constraints>
+                                        <state key="normal" title="b:">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="bomb:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="kEV-ww-VYo"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="BfM-zo-KZ1" secondAttribute="trailing" id="2Ao-GQ-RMd"/>
+                                    <constraint firstItem="BfM-zo-KZ1" firstAttribute="leading" secondItem="CPV-ws-NVS" secondAttribute="leading" id="5WH-Vq-ByR"/>
+                                    <constraint firstItem="Jtc-AI-qiX" firstAttribute="leading" secondItem="CPV-ws-NVS" secondAttribute="leading" id="5oe-6l-wZW"/>
+                                    <constraint firstItem="6aT-Pk-zKF" firstAttribute="leading" secondItem="CPV-ws-NVS" secondAttribute="leading" id="LfM-1h-XDE"/>
+                                    <constraint firstItem="6aT-Pk-zKF" firstAttribute="top" secondItem="CPV-ws-NVS" secondAttribute="top" constant="44" id="P5T-9w-G0r"/>
+                                    <constraint firstItem="BfM-zo-KZ1" firstAttribute="top" secondItem="CPV-ws-NVS" secondAttribute="top" id="aA8-2r-5ui"/>
+                                    <constraint firstAttribute="trailing" secondItem="6aT-Pk-zKF" secondAttribute="trailing" id="lAY-aU-4uC"/>
+                                    <constraint firstItem="Jtc-AI-qiX" firstAttribute="top" secondItem="CPV-ws-NVS" secondAttribute="top" constant="88" id="n2m-MR-GrI"/>
+                                    <constraint firstAttribute="height" constant="132" id="oaB-a2-mUR"/>
+                                    <constraint firstAttribute="trailing" secondItem="Jtc-AI-qiX" secondAttribute="trailing" id="tzQ-D2-DjI"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="dnf-vL-Y10" secondAttribute="trailing" constant="-16" id="4ax-G2-vcJ"/>
                             <constraint firstItem="KPh-8V-MQb" firstAttribute="top" secondItem="dnf-vL-Y10" secondAttribute="bottom" constant="18" id="CNm-K1-HRo"/>
                             <constraint firstItem="dnf-vL-Y10" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="Hgv-Hu-21Q"/>
+                            <constraint firstItem="CPV-ws-NVS" firstAttribute="leading" secondItem="KPh-8V-MQb" secondAttribute="trailing" constant="8" id="dYp-AW-kDX"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="CPV-ws-NVS" secondAttribute="trailing" constant="-16" id="e35-PI-diV"/>
                             <constraint firstItem="dnf-vL-Y10" firstAttribute="centerX" secondItem="KPh-8V-MQb" secondAttribute="centerX" constant="-6" id="h4s-cF-9fn"/>
+                            <constraint firstItem="CPV-ws-NVS" firstAttribute="top" secondItem="KPh-8V-MQb" secondAttribute="top" id="k4o-rC-n1A"/>
                             <constraint firstItem="dnf-vL-Y10" firstAttribute="top" secondItem="U2k-Ib-Q2H" secondAttribute="bottom" constant="20" id="zke-qr-d1L"/>
                         </constraints>
                     </view>
@@ -193,10 +250,13 @@
                         <outlet property="bn" destination="CsA-tm-tQT" id="BmG-fK-ZEV"/>
                         <outlet property="bne" destination="CX3-4L-yFA" id="Pri-VR-net"/>
                         <outlet property="bnw" destination="5U9-d5-Yvq" id="xBr-TI-8qZ"/>
+                        <outlet property="bombButton" destination="Jtc-AI-qiX" id="htl-KF-Cex"/>
                         <outlet property="bs" destination="10q-w3-tuf" id="yUT-wD-lRu"/>
                         <outlet property="bse" destination="8cd-xc-2nf" id="Gew-EE-BBZ"/>
                         <outlet property="bsw" destination="BXc-dU-yU9" id="pnY-L1-8bn"/>
                         <outlet property="bw" destination="nTR-tj-EML" id="dDc-To-NMj"/>
+                        <outlet property="safeTeleportButton" destination="6aT-Pk-zKF" id="JX5-zd-F5j"/>
+                        <outlet property="teleportButton" destination="BfM-zo-KZ1" id="yDz-Co-Hc1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

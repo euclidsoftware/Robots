@@ -10,4 +10,8 @@
 
 @implementation Robot
 
+-(NSString *)description {
+    return @"!";
+}
+
 @end

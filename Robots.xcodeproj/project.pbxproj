@@ -34,6 +34,9 @@
 		B4B4E7211A05C2040024C0E6 /* superRobot@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B4B4E7141A05C2040024C0E6 /* superRobot@2x.png */; };
 		B4B4E7221A05C2040024C0E6 /* superRobot@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B4B4E7151A05C2040024C0E6 /* superRobot@3x.png */; };
 		B4B4E7251A05C2970024C0E6 /* ItemLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = B4B4E7241A05C2970024C0E6 /* ItemLocation.m */; };
+		B4B4E72B1A06FE740024C0E6 /* dead.png in Resources */ = {isa = PBXBuildFile; fileRef = B4B4E7281A06FE740024C0E6 /* dead.png */; };
+		B4B4E72C1A06FE740024C0E6 /* dead@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B4B4E7291A06FE740024C0E6 /* dead@2x.png */; };
+		B4B4E72D1A06FE740024C0E6 /* dead@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B4B4E72A1A06FE740024C0E6 /* dead@3x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +91,9 @@
 		B4B4E7151A05C2040024C0E6 /* superRobot@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "superRobot@3x.png"; sourceTree = "<group>"; };
 		B4B4E7231A05C2970024C0E6 /* ItemLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemLocation.h; sourceTree = "<group>"; };
 		B4B4E7241A05C2970024C0E6 /* ItemLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemLocation.m; sourceTree = "<group>"; };
+		B4B4E7281A06FE740024C0E6 /* dead.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dead.png; sourceTree = "<group>"; };
+		B4B4E7291A06FE740024C0E6 /* dead@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dead@2x.png"; sourceTree = "<group>"; };
+		B4B4E72A1A06FE740024C0E6 /* dead@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dead@3x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,6 +217,9 @@
 		B4B4E7081A05C2040024C0E6 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				B4B4E7281A06FE740024C0E6 /* dead.png */,
+				B4B4E7291A06FE740024C0E6 /* dead@2x.png */,
+				B4B4E72A1A06FE740024C0E6 /* dead@3x.png */,
 				B4B4E7091A05C2040024C0E6 /* debris.png */,
 				B4B4E70A1A05C2040024C0E6 /* debris@2x.png */,
 				B4B4E70B1A05C2040024C0E6 /* debris@3x.png */,
@@ -312,10 +321,13 @@
 				B4B4E7171A05C2040024C0E6 /* debris@2x.png in Resources */,
 				B4B4E6D11A0527EF0024C0E6 /* Main.storyboard in Resources */,
 				B4B4E7221A05C2040024C0E6 /* superRobot@3x.png in Resources */,
+				B4B4E72C1A06FE740024C0E6 /* dead@2x.png in Resources */,
 				B4B4E6D61A0527EF0024C0E6 /* LaunchScreen.xib in Resources */,
+				B4B4E72D1A06FE740024C0E6 /* dead@3x.png in Resources */,
 				B4B4E7161A05C2040024C0E6 /* debris.png in Resources */,
 				B4B4E71D1A05C2040024C0E6 /* robot@2x.png in Resources */,
 				B4B4E7211A05C2040024C0E6 /* superRobot@2x.png in Resources */,
+				B4B4E72B1A06FE740024C0E6 /* dead.png in Resources */,
 				B4B4E7181A05C2040024C0E6 /* debris@3x.png in Resources */,
 				B4B4E7201A05C2040024C0E6 /* superRobot.png in Resources */,
 				B4B4E71E1A05C2040024C0E6 /* robot@3x.png in Resources */,

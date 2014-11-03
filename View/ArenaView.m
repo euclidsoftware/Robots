@@ -64,7 +64,7 @@
     [self drawPlayer];
     
     [self drawRobots];
-
+    [self drawDebris];
 }
 
 -(void) setColumns:(NSInteger)columns rows:(NSInteger)rows {
@@ -75,7 +75,13 @@
 
 -(void) drawPlayer {
     CGRect playerRect = [self rectForColumn:self.playerLocation.column row:self.playerLocation.row];
-    UIImage * playerImage = [UIImage imageNamed:@"player"];
+    UIImage * playerImage;
+    if (self.gameOver) {
+        playerImage = [UIImage imageNamed:@"dead"];
+    }
+    else {
+        playerImage = [UIImage imageNamed:@"player"];
+    }
     [playerImage drawInRect:playerRect];
 }
 

@@ -10,4 +10,5 @@
 
 @interface Robot : Item
 
+@property (assign, nonatomic) BOOL alreadyMoved;
 @end

@@ -10,4 +10,6 @@
 
 @interface Player : Item
 
+@property (assign, nonatomic) BOOL isDead;
+
 @end

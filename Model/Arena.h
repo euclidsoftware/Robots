@@ -16,12 +16,25 @@
 @property (readonly, nonatomic) NSInteger playerStartX;
 @property (readonly, nonatomic) NSInteger playerStartY;
 @property (readonly, nonatomic) NSInteger level;
+@property (readonly, nonatomic) NSInteger safeTeleportsLeft;
+@property (readonly, nonatomic) NSInteger bombsLeft;
 
 
 @property (strong, nonatomic) NSMutableSet * robots;
 @property (strong, nonatomic) NSMutableSet * debris;
 @property (strong, nonatomic) Player * player;
 
+
+
 -(void) restartGame;
+
+
+-(NSDictionary *) validMoves;
+
+
+-(void) moveToSpot: (NSInteger) spot;
+-(void) teleport;
+-(void) safeTeleport;
+
 
 @end

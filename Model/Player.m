@@ -10,4 +10,9 @@
 
 @implementation Player
 
+
+-(NSString *)description {
+    return @"o";
+}
+
 @end

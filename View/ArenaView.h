@@ -14,7 +14,7 @@
 @property (strong, nonatomic) NSSet * robotLocations;
 @property (strong, nonatomic) NSSet * debrisLocations;
 @property (strong, nonatomic) ItemLocation * playerLocation;
-
+@property (assign, nonatomic) BOOL gameOver;
 
 -(void) setColumns:(NSInteger)columns rows:(NSInteger)rows;
 

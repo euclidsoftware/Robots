@@ -10,4 +10,8 @@
 
 @implementation Debris
 
+-(NSString *)description {
+    return @"*";
+}
+
 @end
