@@ -87,22 +87,10 @@
 }
 
 -(void) moveItem: (Item *) item toX: (NSInteger) x y: (NSInteger) y {
-    
-    // clear the 'old' location of the item
-    self.board[item.y][item.x] = [NSNull null];
-    
     // set the attributes of the object
-    [item moveToX:x y:y];
-    
     self.board[y][x] = item;
+    [item moveToX:x y:y];
 }
-
--(void) removeItemFromBoard: (Item *) item {
-    // clear the 'old' location of the item
-    self.board[item.y][item.x] = [NSNull null];
-    
-}
-
 
 -(BOOL) isSpotEmptyWithXOffset: (NSInteger) xOffset yOffset: (NSInteger) yOffset {
     // reject invalid moves first
@@ -165,15 +153,18 @@
     
     NSInteger newPlayerX = self.player.x + xOffset;
     NSInteger newPlayerY = self.player.y + yOffset;
+    
+    // "pick up player"
+    self.board[self.player.y][self.player.x] = [NSNull null];
     [self moveItem:self.player toX:newPlayerX y:newPlayerY];
     
     // The set of robots may need to be changed if the robots
     // collide with anything after they move towards the player
     NSMutableSet * newRobotSet = [NSMutableSet setWithCapacity:[self.robots count]];
 
-    // mark all the robots as 'not already moved'
+    // "Pick up" all the robots
     for (Robot * robot in self.robots) {
-        robot.alreadyMoved = NO;
+        self.board[robot.y][robot.x] = [NSNull null];
     }
     
     // now move all robots and check for collisions
@@ -203,41 +194,23 @@
                 // there is the player there
                 self.player.isDead = YES;
                 robot.alreadyMoved = YES;
-                [self removeItemFromBoard:robot];
                 // don't need to add the robot to the newRobotSet because the game is over
                 // We'll show the dead player there instead
             }
             else if ([self.board[robotY][robotX] class] == [Robot class]) {
                 // there's a robot there
                 Robot * previousRobot = self.board[robotY][robotX];
-                if (previousRobot.alreadyMoved) {
-                    // this robot has already moved here. This is a collision
-                    // remove the robot that was here previously from the newRobotSet
-                    // and add a piece of debris to this location
-                    [self removeItemFromBoard:previousRobot];
-                    [newRobotSet removeObject:previousRobot];
-                    Debris * newDebris = [[Debris alloc] init];
-                    [self moveItem:newDebris toX:robotX y:robotY];
-                    [self.debris addObject:newDebris];
-                    
-                    
-                    // don't add this robot to the newRobotSet, obviously
-                }
-                else {
-                    // this is not a collision - add the robot to the newRobotSet
-                    robot.alreadyMoved = YES;
-                    [self moveItem:robot toX:robotX y:robotY];
-                    [newRobotSet addObject:robot];
-                }
+                [newRobotSet removeObject:previousRobot];
+                Debris * newDebris = [[Debris alloc] init];
+                [self moveItem:newDebris toX:robotX y:robotY];
+                [self.debris addObject:newDebris];
             }
             else if ([self.board[robotY][robotX] class] == [Debris class]) {
                 // there is debris there
                 // don't add this robot to the newRobotSet
-                [self removeItemFromBoard:robot];
             }
         }
         else {
-            robot.alreadyMoved = YES;
             [self moveItem:robot toX:robotX y:robotY];
             [newRobotSet addObject:robot];
         }

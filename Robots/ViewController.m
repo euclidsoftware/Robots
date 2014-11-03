@@ -141,6 +141,10 @@
         self.bombButton.enabled = NO;
     }
     
+    if ([self.arena.robots count] == 0) {
+        NSLog(@"Level complete");
+    }
+    
 }
 
 - (IBAction)teleport:(UIButton *)sender {
